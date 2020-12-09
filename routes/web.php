@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\DatabaseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [DatabaseController::class, 'show'])->name('main');
+
+Route::get('/single', [BookController::class, 'show'])->name('single');
+
+Route::get('/add', [BookController::class, 'add'])->name('add');
+Route::post('/create', [BookController::class, 'create'])->name('create');
+
+Route::post('/delete', [BookController::class, 'delete'])->name('delete');
+
+Route::post('/edit', [BookController::class, 'edit'])->name('edit');
+Route::post('/update', [BookController::class, 'update'])->name('update');
+
