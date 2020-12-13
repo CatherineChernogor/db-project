@@ -1,23 +1,23 @@
 @extends('layouts.app')
-@section('title', 'create '.$table_name.' table')
+@section('title', 'create '.$title.' table')
 @section('content')
     <div class="container ">
 
-        <p class="h4 mt-5 ">Create {{$table_name}}</p>
+        <p class="h4 mt-5 ">Create {{$title}}</p>
 
         @if ($errors->any())
             <div class="alert alert-danger">You have errors to fix</div>
         @endif
 
-        <form action="{{route('create')}}" method="post">
+        <form action="{{route($routeIndex)}}" method="post">
 
-            @foreach($columns as $col)
+            @foreach($columns as $column_name => $column_type)
                 <div class="form-group">
-                    <label>{{$col}}</label>
-                    <input type="text" class="form-control" name="{{$col}}"
-{{--                           value="{{@old($col) ?? $line->$col}}"--}}
+                    <label>{{$column_name}}</label>
+                    <input type="text" class="form-control" name="{{$column_name}}"
+                           value="{{@old($column_name) ?? $entity->$column_name}}"
                     >
-                    @error($col)
+                    @error($column_name)
                     <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>

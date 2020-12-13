@@ -5,8 +5,8 @@
         <p class="h3 mt-5 ">My tables</p>
 
         <ul>
-            @foreach($tables as $table)
-                <li><a href="{{route('single')}}">{{$table->Tables_in_db_project}}</a></li>
+            @foreach($tables as $table_name => $table_url)
+                <li><a href="{{url($table_url)}}">{{$table_name}}</a></li>
             @endforeach
         </ul>
     </div>
