@@ -22,10 +22,14 @@ class BookController extends EntityController
     ];
 
     protected $columns = [
-
         'name' => 'text',
         'isbn' => 'text',
         'storage_id' => 'number',
+    ];
+
+    protected $indexColumns =[
+        'name' => 'text',
+        'isbn' => 'text',
     ];
 
 }

@@ -42,12 +42,12 @@ abstract class EntityController extends Controller
     {
         return $this->columns;
     }
-
+//
 //    protected function getIndexColumns(Request $request)
 //    {
-//        return $this->getColumns($request);
+//        return $this->getIndexColumns($request);
 //    }
-//
+
 //    protected function getCreateColumns(Request $request)
 //    {
 //        return $this->getColumns($request);

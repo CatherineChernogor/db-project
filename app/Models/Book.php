@@ -12,4 +12,18 @@ class Book extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'isbn', 'storage_id'];
+
+    public function genres()
+    {
+        return $this->belongsToMany(Genre::class, 'book_genre');
+    }
+
+    public function authors()
+    {
+        return $this->belongsToMany(Genre::class, 'author_book');
+    }
+
+    public function storage(){
+        return $this->belongsTo(Storage::class);
+    }
 }

@@ -10,6 +10,11 @@ class Genre extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
     protected $fillable = ['name'];
 
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'book_genre');
+    }
 }
