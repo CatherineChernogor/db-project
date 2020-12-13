@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\GenreController;
+use App\Http\Controllers\StorageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DatabaseController::class, 'show'])->name('main');
 
-Route::get('/single', [BookController::class, 'show'])->name('single');
-
-Route::get('/add', [BookController::class, 'add'])->name('add');
-Route::post('/create', [BookController::class, 'create'])->name('create');
-
-Route::post('/delete', [BookController::class, 'delete'])->name('delete');
-
-Route::post('/edit', [BookController::class, 'edit'])->name('edit');
-Route::post('/update', [BookController::class, 'update'])->name('update');
-
+Route::resource('/book', BookController::class);
+Route::resource('/author', AuthorController::class);
+Route::resource('/genre', GenreController::class);
+Route::resource('/storage', StorageController::class);
