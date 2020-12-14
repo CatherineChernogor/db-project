@@ -21,15 +21,18 @@ class BookController extends EntityController
         'storage_id' => 'required',
     ];
 
-    protected $columns = [
+    protected $formColumns = [
         'name' => 'text',
         'isbn' => 'text',
         'storage_id' => 'number',
     ];
 
-    protected $indexColumns =[
+    protected $indexColumns = [
+        'id' => 'number',
         'name' => 'text',
         'isbn' => 'text',
+        'storage name' => 'number',
+
     ];
 
 }

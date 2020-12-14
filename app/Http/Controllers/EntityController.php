@@ -38,15 +38,20 @@ abstract class EntityController extends Controller
         'name' => 'text',
     ];
 
-    protected function getColumns(Request $request)
+    protected $indexColumns = [
+        'id' => 'number',
+        'name' => 'text',
+    ];
+
+    protected function getFormColumns(Request $request)
     {
-        return $this->columns;
+        return $this->formColumns;
     }
-//
-//    protected function getIndexColumns(Request $request)
-//    {
-//        return $this->getIndexColumns($request);
-//    }
+
+    protected function getIndexColumns(Request $request)
+    {
+        return $this->indexColumns;
+    }
 
 //    protected function getCreateColumns(Request $request)
 //    {
@@ -77,7 +82,7 @@ abstract class EntityController extends Controller
         //$entities = $model::paginate(30);
         $entities = $model::all();
 
-        $columns = $this->getColumns($request);
+        $columns = $this->getIndexColumns($request);
 
         return view('entity.index', compact('entities', 'columns', 'title', 'routeIndex', 'routeShow', 'routeCreate', 'routeEdit'));
     }
@@ -93,7 +98,7 @@ abstract class EntityController extends Controller
 
         $entity = new $model;
 
-        $columns = $this->getColumns($request);
+        $columns = $this->getFormColumns($request);
 
         return view('entity.create', compact('entity', 'columns', 'title', 'routeIndex'));
     }
@@ -119,7 +124,7 @@ abstract class EntityController extends Controller
 
         $entity = $model::find($id);
 
-        $columns = $this->getColumns($request);
+        $columns = $this->getIndexColumns($request);
 
         return view('entity.show', compact('entity', 'columns', 'title'));
     }
@@ -137,7 +142,7 @@ abstract class EntityController extends Controller
 
         $entity = $model::find($id);
 
-        $columns = $this->getColumns($request);
+        $columns = $this->getFormColumns($request);
 
         return view('entity.edit', compact('entity', 'columns', 'title', 'routeIndex', 'routeShow', 'routeCreate', 'routeEdit'));
     }

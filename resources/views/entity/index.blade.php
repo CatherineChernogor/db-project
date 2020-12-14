@@ -28,7 +28,11 @@
 
                     <tr class="">
                         @foreach($columns as $column_name => $column_type)
-                            <td class="pl-4 pr-4">{{$entity->$column_name}}</td>
+                            @if($column_name=='storage name')
+                                <td class="pl-4 pr-4">{{$entity->storage->name}}</td>
+                            @else
+                                <td class="pl-4 pr-4">{{$entity->$column_name}}</td>
+                            @endif
                         @endforeach
                         <td class="d-flex flex-row-reverse">
                             <form action="{{route($routeShow, $entity->id)}}" method="post">

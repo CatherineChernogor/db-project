@@ -20,7 +20,13 @@ class AuthorController extends EntityController
         'firstname' => 'required',
     ];
 
-    protected $columns = [
+    protected $formColumns = [
+        'lastname' => 'text',
+        'firstname' => 'text',
+    ];
+
+    protected $indexColumns = [
+        'id' => 'number',
         'lastname' => 'text',
         'firstname' => 'text',
     ];

@@ -19,7 +19,11 @@ class GenreController extends EntityController
         'name' => 'required',
     ];
 
-    protected $columns = [
+    protected $formColumns = [
+        'name' => 'text',
+    ];
+    protected $indexColumns = [
+        'id' => 'number',
         'name' => 'text',
     ];
 
