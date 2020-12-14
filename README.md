@@ -10,15 +10,21 @@
 ## Database project
 
 The project was made to illustrate a simple scheme of book storage. There're the following tables:
-- Entity
+- Entity tables
     - Book
     - Genre
     - Author
     - Storage
-- Connections
+- Connections tables
     - Author_book
     - Book_genre
 
+And also the following types of relationships:
+- Many To Many 
+    - Author - Book
+    - Book - Genre
+- One To Many
+    - Book - Storage
 <img src="/scheme.png" >
 
 
